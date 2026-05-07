@@ -1,6 +1,14 @@
 # Coding Test Preparation 2026
 
-## Knapsack problem
+## 1D dinamic programming
+
+### Longest increasing subsequence
+
+
+
+## 2D dynamic programming
+
+### Knapsack problem
 
 - Unbounded
 
@@ -11,6 +19,15 @@
 - Bounded
 
 
-## Edit distance
+### Edit distance
 
 
+### Lattice Path
+
+
+
+
+
+
+
++ backtracking
