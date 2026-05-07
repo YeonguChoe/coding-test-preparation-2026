@@ -1,10 +1,8 @@
 # Coding Test Preparation 2026
 
-## 1D dinamic programming
+## 1D dynamic programming
 
 ### Longest increasing subsequence
-
-
 
 ## 2D dynamic programming
 
@@ -12,18 +10,10 @@
 
 - Unbounded
 
-
 - 0-1
-
-
-- Bounded
 
 
 ### Edit distance
 
 
 ### Lattice Path
-
-
-
-+ backtracking
