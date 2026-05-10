@@ -27,17 +27,7 @@
 
 ## 2D dynamic programming
 
-### Knapsack problem
-
-#### 0-1 knapsack problem
-
-##### counting possible cases
-- row: available item types 
-- column: weight capacity
-
-```
-memo[row][column] = table[row-1][column] + table[row][column - (recently added coin denomination)]
-```
+### 0-1 knapsack problem
 
 #### maximize sum of values
 - `row`: current available item types
@@ -67,10 +57,6 @@ def zero_one_knapsack_max_value_sum(n, w, v, W):
                 m[i][w_i] = max(m[i - 1][w_i], m[i - 1][w_i - w[i - 1]] + v[i - 1])
     return m[n][W]
 ```
-
-#### Unbounded knapsack problem
-
-
 
 ### Edit distance
 
