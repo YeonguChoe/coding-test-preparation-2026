@@ -60,4 +60,31 @@ def zero_one_knapsack_max_value_sum(n, w, v, W):
 
 ### Edit distance
 
+- When changing word1 (row) to word2 (column)
+
+```python
+word1 = "abd"
+word2 = "abc"
+
+distance = [
+    # "" a b c 
+    [0, 1, 2, 3], # ""
+    [1, 0, 0, 0], # a
+    [2, 0, 0, 0], # b
+    [3, 0, 0, 0]  # d
+]
+```
+
+- insert: `distance(a-1,b)` + 1
+    - `distance(a-1,b)`: state before adding the last character to word1
+    - `1`: insert new character to `x[a-1]`
+- delete: 1 + `distance(a,b-1)`
+    - `distance(a,b-1)`: state after deleting the last character from word1
+    - `1`: delete the last character from x[:a]
+- edit: `distance(a-1,b-1)` + cost for changing last character
+- match: `distance(a-1,b-1)`
+
+
+- `distance(a,b)` = min(`insert`, `delete`, `edit`, `match`)
+
 ### Lattice Path
