@@ -88,3 +88,21 @@ distance = [
 - `distance(a,b)` = min(`insert`, `delete`, `edit`, `match`)
 
 ### Lattice Path
+
+- 2D array specification
+    - cell definition: unique path from `(0, 0)` to `(i, j)`
+    - 1st row and 1st column is all `1`
+- dp(i,j) = dp(i-1,j)+dp(i,j-1)
+
+
+### Longest Common Subsequence
+
+
+### Subset Sum Problem
+
+
+### Partition Problem
+
+
+### Longest Palindromic Substring
+
