@@ -3,13 +3,7 @@
 ## Range queries
 - prefix sum array
 
-## Complete search
-
-### Generating subsets
-
-### Generating permutations
-
-### Backtracking
+## Backtracking
 
 ## Graph traversal
 
@@ -96,13 +90,28 @@ distance = [
 
 
 ### Longest Common Subsequence
+- `Subsequence`: string that some characters may get deleted from original string
+- `dp(r,c)` is `LCS(word1[:r],word2[:c])`
+    - `""` (empty string) if either word1[:r] or word2[:c] is an empty string
+    - `dp(r-1,c-1) + word1[r-1]` if the last character of word1 and word2 are the same
+    - longer string of `LCS(word1[:r-1],word2[:c])` and `LCS(word1[:r],word2[:c-1])` if the last character of word1 and word2 are different
+- put word1 in the row and word2 in the column
+
+#### if word1="GAC", word2="AGCAT"
+```python
+dp = [
+#    ""  A   G   C    A    T
+    ["", "", "", "",  "",  ""],   # ""
+    ["", "", "G","G", "G", "G"],  # G
+    ["", "A","A","A", "A", "A"],  # A
+    ["", "A","A","AC","AC","AC"], # C
+]
+```
+
+### Longest Palindromic Substring
 
 
 ### Subset Sum Problem
 
-
 ### Partition Problem
-
-
-### Longest Palindromic Substring
-
+- is a type of subset sum problem
