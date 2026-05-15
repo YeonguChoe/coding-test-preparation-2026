@@ -92,12 +92,14 @@ distance = [
 ### Longest Common Subsequence
 - `Subsequence`: string that some characters may get deleted from original string
 - `dp(r,c)` is `LCS(word1[:r],word2[:c])`
+- `dp(r,c)`
     - `""` (empty string) if either word1[:r] or word2[:c] is an empty string
     - `dp(r-1,c-1) + word1[r-1]` if the last character of word1 and word2 are the same
     - longer string of `LCS(word1[:r-1],word2[:c])` and `LCS(word1[:r],word2[:c-1])` if the last character of word1 and word2 are different
-- put word1 in the row and word2 in the column
 
-#### if word1="GAC", word2="AGCAT"
+
+#### example) word1="GAC", word2="AGCAT"
+- put word1 in the row and word2 in the column
 ```python
 dp = [
 #    ""  A   G   C    A    T
@@ -109,6 +111,39 @@ dp = [
 ```
 
 ### Longest Palindromic Substring
+
+- dp(l,r): substring from left pointer (`l`) to right pointer (`r`) is palindrome
+- dp(l,r)
+    - `True` if it is one letter
+    - `True` if s[l] == s[r] and
+        - if s[l] and s[r] are next to each other
+        - or if a character exists between s[l] and s[r] (e.g, `bab`)
+        - or if inner substring is also palindrome `dp[l+1][r-1] == True`
+    - `False` otherwise
+
+#### example) s = "baab"
+
+- `l` is left pointer
+- `r` is right pointer
+
+```python
+dp = [
+# r:  0      1      2      3      # l
+    [True,  False, False, True ], # 0
+    [None,  True,  True,  False], # 1
+    [None,  None,  True,  False], # 2
+    [None,  None,  None,  True ], # 3
+]
+```
+
+- `dp` table should be filled from short substring to long substring (from substring length `0` to `len(s)-1`)
+    1. `0` <= `substring_length` <= `len(s)-1`
+    1. `r` = `l` + `substring_length`
+    1. `l` = `r` - `substring_length`
+    1. `r` <= `len(s)-1`
+    1. `l` <= `len(s)-1` - `substring_length`
+    
+
 
 
 ### Subset Sum Problem
