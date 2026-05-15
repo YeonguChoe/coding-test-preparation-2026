@@ -3,6 +3,15 @@
 ## Range queries
 - prefix sum array
 
+## Generating Subset
+- modify output and return if currently examining index is out of bound of the input
+- call function with increased index
+- add character at currently examining index to substring
+- call function with incrased index
+- remove the character from substring
+
+## Generating Permutations
+
 ## Backtracking
 
 ## Graph traversal
@@ -50,6 +59,28 @@ def zero_one_knapsack_max_value_sum(n, w, v, W):
             if w[i - 1] <= w_i:
                 m[i][w_i] = max(m[i - 1][w_i], m[i - 1][w_i - w[i - 1]] + v[i - 1])
     return m[n][W]
+```
+
+#### subset sum
+- subset sum is 0/1 dynamic programming problem
+- subset can use maximum once from original set
+- `dp(r,c)` = is it possible to make `c` with the first `r` numbers
+- `dp(r,c)`
+    - 1st column: it is possible to make 0 with any available numbers.
+    - 1st row after 1st column: cannot make positive integer with `[0]` available numbers.
+    - `True` if
+        - not using the recently added number was `True`
+        - using the recently added number and cell that `target - recently added number` is `True`
+
+##### available numbers = [1,2,3] target = 4
+```python
+dp = [
+# Target 0     1     2     3     4      # available numbers
+    [ True, False, False, False, False ],   # []
+    [ True, True, False, False, False ],   # [1]
+    [ True, True, True, True, False ],   # [1, 2]
+    [ True, True, True, True, True ],   # [1, 2, 3]
+]
 ```
 
 ### Edit distance
@@ -142,11 +173,3 @@ dp = [
     1. `l` = `r` - `substring_length`
     1. `r` <= `len(s)-1`
     1. `l` <= `len(s)-1` - `substring_length`
-    
-
-
-
-### Subset Sum Problem
-
-### Partition Problem
-- is a type of subset sum problem
