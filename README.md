@@ -4,15 +4,55 @@
 - prefix sum array
 
 ## Generating Subset
-- modify output and return if currently examining index is out of bound of the input
-- call function with increased index
-- add character at currently examining index to substring
-- call function with incrased index
-- remove the character from substring
+- `subset`: partial collection of original collection, which does not require maintaining order of original collection.
+
+1. modify output and return if currently examining index is out of bound of the input
+2. call function with increased index
+3. add character at currently examining index to substring
+4. call function with increased index
+5. remove the character from substring
 
 ## Generating Permutations
+- `permutation`: ordered arrangements of elements from original collection, where each element should appear exactly once.
+- Use `chosen` to track of number included in the `permutation`.
+
+### inputs = [2,1,3]
+```python
+result = []
+permutation = []
+chosen = [False, False, False]
+
+def f():
+    if len(permutation) == len(inputs):
+        results.append(permutation[:])
+    else:
+        for i in range(len(inputs)):
+            if chosen[i] == False:
+                chosen[i] = True
+                permutation.append(inputs[i])
+                f()
+                chosen[i] = False
+                permutation.pop()
+```
 
 ## Backtracking
+
+## Making a subsequence
+
+`subsequence`
+- sequence of character in string that is in original order.
+- some characters can be missing.
+
+```python
+nums = [1, 2, 1]
+subsequences = [[]]
+for n in nums:
+    new_subsequences = []
+    for s in subsequences:
+        new_subsequence = s + [n]
+        new_subsequences.append(new_subsequence)
+    subsequences += new_subsequences
+```
 
 ## Graph traversal
 
@@ -27,6 +67,11 @@
 ## 1D dynamic programming
 
 ### Longest increasing subsequence
+
+- `length(i)`: length of the longest increasing subsequence including arr[i]
+- `dp[k]`
+    - if there exists an arr[i] < arr[k] on the left side of arr[k]: 1 + {maximum dp[i] such that arr[i] < arr[k]}
+    - if there is no arr[i] < arr[k] on the left side of arr[k]: 1
 
 ## 2D dynamic programming
 
