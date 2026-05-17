@@ -1,5 +1,7 @@
 # Coding Test Preparation 2026
 
+## Merge Sort
+
 ## Range queries
 - prefix sum array
 
@@ -36,6 +38,17 @@ def f():
 ```
 
 ## Backtracking
+- idea: try every possible choices, if blocked along the path, give up that path and go back and try another path.
+
+### N-Queens II
+#### Encoding to 1D array
+- `column[c]`: column `c` is occupied.
+- `diagonal↗[r+c]`: `r+c` ↗ direction diagonal is occupied.
+- `diagonal[c-r+n-1]`: `c-r+n-1` ↖ direction diagonal is occupied.
+
+#### algorithm
+- base case: add new solution if row `r` reaches `n`
+- recursive case: choose each column `c` and run simulation.
 
 ## Making a subsequence
 
